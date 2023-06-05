@@ -49,6 +49,8 @@ def crawl_and_save(start_page, MAX_PAGES):
                     href not in url_files):
                     # check if links takes to a midi file
                     if is_midi(href):
+                        # remove spaces from url (replace them with %20)
+                        href = href.replace(" ", "%20")
                         file_name = href.split('/')[-1]
                         url_files.append(href)
                         try:
